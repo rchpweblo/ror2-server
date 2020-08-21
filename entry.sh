@@ -18,7 +18,7 @@ echo "Downloading R2API"
 wget -nc -P "${STEAMAPPDIR}"/BepInEx https://thunderstore.fra1.cdn.digitaloceanspaces.com/live/repository/packages/tristanmcpherson-R2API-2.5.6.zip
 
 echo "Installing R2API"
-7z x "${STEAMAPPDIR}"/BepInEx/bbepis-BepInExPack-5.3.1.zip -o"${STEAMAPPDIR}"/BepInEx
+7z x "${STEAMAPPDIR}"/BepInEx/tristanmcpherson-R2API-2.5.6.zip -o"${STEAMAPPDIR}"/BepInEx
 rm -r "${STEAMAPPDIR}"/BepInEx/tristanmcpherson-R2API-2.5.6.zip "${STEAMAPPDIR}"/BepInEx/icon.png "${STEAMAPPDIR}"/BepInEx/manifest.json "${STEAMAPPDIR}"/BepInEx/README.md
 
 echo "Generating initial Wine configuration..."
