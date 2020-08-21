@@ -9,10 +9,10 @@ ENV STEAMAPPID 1180760
 ENV STEAMAPPDIR /home/steam/ror2-dedicated
 
 # Default server parameters
-ENV R2_PLAYERS 4
+ENV R2_PLAYERS 8
 ENV R2_HEARTBEAT 0
-ENV R2_HOSTNAME "A Risk of Rain 2 dedicated server"
-ENV R2_PSW ""
+ENV R2_HOSTNAME "The Bizarre Bazaar"
+ENV R2_PSW "BizarreBazaar"
 
 COPY entry.sh ${STEAMAPPDIR}/entry.sh
 COPY default_config.cfg ${STEAMAPPDIR}/default_config.cfg
@@ -28,6 +28,7 @@ RUN set -x \
 		xauth \
 		gettext \
 		winbind \
+		p7zip-full \
 	&& wget -nc https://dl.winehq.org/wine-builds/winehq.key \
 	&& apt-key add winehq.key \
 	&& echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" >> /etc/apt/sources.list \
