@@ -45,8 +45,6 @@ RUN set -x \
 	&& chown -R steam:steam ${STEAMAPPDIR} \
 	&& ${STEAMCMDDIR}/steamcmd.sh +login anonymous +force_install_dir ${STEAMAPPDIR} \
 		+@sSteamCmdForcePlatformType windows +app_update ${STEAMAPPID} +quit \
-	&& apt-get remove --purge -y \
-		wget \
 	&& apt-get clean autoclean \
 	&& apt-get autoremove -y \
 	&& rm -rf /var/lib/apt/lists/*
