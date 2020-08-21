@@ -7,11 +7,12 @@ echo "Generating server configuration..."
 envsubst < "default_config.cfg" > "${STEAMAPPDIR}/Risk of Rain 2_Data/Config/server.cfg"
 
 echo "Downloading BepInEx..."
-wget -P "${STEAMAPPDIR}" https://github.com/BepInEx/BepInEx/releases/download/v5.3/BepInEx_x64_5.3.0.0.zip
+wget -nc -P "${STEAMAPPDIR}" https://thunderstore.fra1.cdn.digitaloceanspaces.com/live/repository/packages/bbepis-BepInExPack-5.3.1.zip
 
 echo "Installing BepInEx..."
-7z x "${STEAMAPPDIR}"/BepInEx_x64_5.3.0.0.zip -o"${STEAMAPPDIR}"
-rm "${STEAMAPPDIR}"/BepInEx_x64_5.3.0.0.zip "${STEAMAPPDIR}"/changelog.txt
+7z x "${STEAMAPPDIR}"/bbepis-BepInExPack-5.3.1.zip -o"${STEAMAPPDIR}" BepInExPack
+mv "${STEAMAPPDIR}"/BepInExPack/BepInEx/ "${STEAMAPPDIR}"/BepInExPack/doorstop_config.ini "${STEAMAPPDIR}"/BepInExPack/winhttp.dll -t "${STEAMAPPDIR}"
+rm "${STEAMAPPDIR}"/BepInEx_x64_5.3.0.0.zip "${STEAMAPPDIR}"/BepInExPack/
 
 echo "Generating initial Wine configuration..."
 /opt/wine-stable/bin/winecfg
