@@ -1,6 +1,6 @@
 <h1> <img src="https://i.imgur.com/UIQSMEs.png" height=45> Risk of Rain 2 dockerized server </h1>
  
-[![Docker Pulls](https://img.shields.io/docker/pulls/avivace/ror2server?style=flat-square)](https://hub.docker.com/r/avivace/ror2server)
+[![Docker Pulls](https://img.shields.io/docker/pulls/rchpweblo/ror2server?style=flat-square)](https://hub.docker.com/r/rchpweblo/ror2-server)
 
 Host your Risk of Rain 2 dedicated server anywhere using Docker. [Guide on Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=2077564253).
 
@@ -9,7 +9,7 @@ Host your Risk of Rain 2 dedicated server anywhere using Docker. [Guide on Steam
 Assuming you have [Docker](https://docs.docker.com/get-docker/) installed, on the server:
 
 ```bash
-docker run -p 27015:27015/udp avivace/ror2server:0.1
+docker run -p 27015:27015/udp rchpweblo/ror2server:0.1
 ```
 
 Players need to start Risk of Rain 2, open the console pressing <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>\`</kbd> and insert this command:
@@ -27,7 +27,7 @@ By default, the server has no password and runs on UDP port 27015.
 If you want to start the server on port **25000** with password **hello**:
 
 ```
-docker run -p 25000:27015/udp -e R2_PSW='hello' avivace/ror2server:0.1
+docker run -p 25000:27015/udp -e R2_PSW='hello' rchpweblo/ror2server:0.1
 ```
 
 Players will then join with:
@@ -56,18 +56,18 @@ To install and enable mods server side, you can mount your BepInEx folder as vol
 E.g.
 
 ```bash
-docker run -p 27015:27015/udp avivace/ror2server:0.1 -v $HOST_DIR:/home/steam/ror2-dedicated/BepInEx
+docker run -p 27015:27015/udp rchpweblo/ror2server:0.1 -v $HOST_DIR:/home/steam/ror2-dedicated/BepInEx
 ```
 
 ### Known Issues
 
-- Currently, reporting to the official server browser requires a patched DLL. See this [issue](https://github.com/avivace/ror2-server/issues/1).
+- Currently, reporting to the official server browser requires a patched DLL. See this [issue](https://github.com/rchpweblo/ror2-server/issues/1).
 - For some reason, `winecfg` returns before completing the creation of the configuration files, making any subsequent call of `xvfb` fail. The current (trash) workaround is to just wait 5 seconds before firing Wine in the virtual framebuffer.
 
 ## Develop
 
 ```bash
-git clone https://github.com/avivace/ror2-server
+git clone https://github.com/rchpweblo/ror2-server
 cd ror2-server
 docker build -t ror2ds .
 docker run --rm -d -p 27015:27015/udp --name ror2-server ror2ds
