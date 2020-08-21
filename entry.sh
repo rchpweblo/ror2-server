@@ -12,7 +12,7 @@ wget -nc -P "${STEAMAPPDIR}" https://thunderstore.fra1.cdn.digitaloceanspaces.co
 echo "Installing BepInEx..."
 7z x "${STEAMAPPDIR}"/bbepis-BepInExPack-5.3.1.zip -o"${STEAMAPPDIR}" BepInExPack
 mv "${STEAMAPPDIR}"/BepInExPack/BepInEx/ "${STEAMAPPDIR}"/BepInExPack/doorstop_config.ini "${STEAMAPPDIR}"/BepInExPack/winhttp.dll -t "${STEAMAPPDIR}"
-rm "${STEAMAPPDIR}"/BepInEx_x64_5.3.0.0.zip "${STEAMAPPDIR}"/BepInExPack/
+rm -r "${STEAMAPPDIR}"/BepInEx_x64_5.3.0.0.zip "${STEAMAPPDIR}"/BepInExPack/
 
 echo "Generating initial Wine configuration..."
 /opt/wine-stable/bin/winecfg
